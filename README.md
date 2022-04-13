@@ -1,2 +1,2 @@
 # ROSCA
- Raptor's Chatbot
+![alt text](https://raw.githubusercontent.com/CtrlAltWilson/ROSCA/main/Rosca.png)
