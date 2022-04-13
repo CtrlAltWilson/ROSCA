@@ -1,0 +1,1923 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScriptContainer xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" noNamespaceSchemaLocation="http://lab-iniws01/scriptcontainer.xsd" BusNo="4598005" UserID="7190920">
+  <Actions>
+    <ActionStruct>
+      <ActionID>74</ActionID>
+      <Action>IF</Action>
+      <Caption>If</Caption>
+      <Parameters>
+        <string>checkToday &gt; 44794</string>
+      </Parameters>
+      <Branches>
+        <BranchStruct>
+          <Text>True</Text>
+          <ActionID>72</ActionID>
+          <Index>0</Index>
+          <Segments />
+        </BranchStruct>
+        <BranchStruct>
+          <Text>False</Text>
+          <ActionID>70</ActionID>
+          <Index>1</Index>
+          <Segments />
+        </BranchStruct>
+      </Branches>
+      <Cases />
+      <X>496</X>
+      <Y>528</Y>
+      <DependencyOrder>42</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>6695ba9c-e1d6-4f3c-a15a-94f1400e3169</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches>
+          <BranchInfo>
+            <KeyName>0</KeyName>
+            <ActionId>72</ActionId>
+            <Segments />
+          </BranchInfo>
+          <BranchInfo>
+            <KeyName>1</KeyName>
+            <ActionId>70</ActionId>
+            <Segments />
+          </BranchInfo>
+        </Branches>
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>73</ActionID>
+      <Action>SNIPPET</Action>
+      <Caption>Snippet</Caption>
+      <Parameters>
+        <string>IF TEST = 1 
+{
+	ASSIGN getDay = now.datepart('day')
+	ASSIGN getMonth = "{now.datepart('month')}"
+	ASSIGN getYear = now.datepart('year')
+
+	//ASSIGN day = now.datepart('dow')
+	ASSIGN day = 0
+}
+
+ASSIGN WeekOfDay = "{getMonth}/{getDay}/{getYear}"
+
+ASSIGN checkToday = WeekOfDay.asdate()
+
+IF TEST = 1
+{
+	ASSIGN BegWeekOfDayMonth = "{checkToday.datepart('month')}"
+	ASSIGN BegWeekOfDayDay = checkToday.datepart('day')
+	ASSIGN BegWeekOfDayYear = checkToday.datepart('year')
+}
+
+
+</string>
+        <string>Limit2K</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>74</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>576</X>
+      <Y>528</Y>
+      <DependencyOrder>16</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b333da63-33c8-4297-a58a-e9546cf7f0f2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>74</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>72</ActionID>
+      <Action>DELETE</Action>
+      <Caption>Rm</Caption>
+      <Parameters>
+        <string>ChatSupport\Solved_ToAgent_Count\2022\exist2.txt</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>70</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches>
+        <BranchStruct>
+          <Text>Error</Text>
+          <ActionID>70</ActionID>
+          <Index>0</Index>
+          <Segments />
+        </BranchStruct>
+      </Branches>
+      <Cases />
+      <X>416</X>
+      <Y>576</Y>
+      <DependencyOrder>40</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>81ddc140-f1ea-47c6-9041-918c8952a725</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>70</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches>
+          <BranchInfo>
+            <KeyName>0</KeyName>
+            <ActionId>70</ActionId>
+            <Segments />
+          </BranchInfo>
+        </Branches>
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>71</ActionID>
+      <Action>WRITEFILE</Action>
+      <Caption>Writefile</Caption>
+      <Parameters>
+        <string>{nextWeekResolves}</string>
+        <string>{ResolveHeaders}
+</string>
+        <string>False</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>62</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>576</X>
+      <Y>464</Y>
+      <DependencyOrder>39</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>c67385d1-6abc-45a1-adc0-fe6d2282bbd3</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>62</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>70</ActionID>
+      <Action>SNIPPET</Action>
+      <Caption>Solved</Caption>
+      <Parameters>
+        <string>IF TEST = 1
+{
+	//ASSIGN textFile = "date Solved by Rosca: 25 Sent to Agent: 0 Total issues: 0"
+	ASSIGN fileS2AC_YTD = "Solved by Rosca: 25 Sent to Agent: 25 Total issues: 222"
+}
+
+ASSIGN textArrYTD = fileS2AC_YTD.split(" ")
+ASSIGN PerYTD = (textArrYTD[4]/textArrYTD[11]*100).format('F0')</string>
+        <string>Limit2K</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>65</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>416</X>
+      <Y>464</Y>
+      <DependencyOrder>16</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b333da63-33c8-4297-a58a-e9546cf7f0f2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>65</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>69</ActionID>
+      <Action>READFILE</Action>
+      <Caption>Readfile S2AC YTD</Caption>
+      <Parameters>
+        <string>{locationYTD}</string>
+        <string>Limit2K</string>
+        <string>fileS2AC_YTD</string>
+        <string>False</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>73</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>576</X>
+      <Y>576</Y>
+      <DependencyOrder>37</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>0d21c228-59e9-4ab6-8fd1-3be9eb2f6b62</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>73</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>65</ActionID>
+      <Action>EMAIL</Action>
+      <Caption>ROSCA's Weekly Summary</Caption>
+      <Parameters>
+        <string>Automatic</string>
+        <string>ROSCA</string>
+        <string>ROSCA@raptortech.com</string>
+        <string />
+        <string>{reportEmail}</string>
+        <string>{CCEmail},{ToEmail}</string>
+        <string>ROSCA's Weekly Summary</string>
+        <string>Hello,
+
+{getMonth} {getDay}, {getYear}
+Here is this week's summary for ROSCA:
+
+Resolved: {textArrWEEKLY[4]}
+Unresolved: {textArrWEEKLY[8]}
+Total: {textArrWEEKLY[11]}
+
+Year to Date:
+
+Total Resolved: {textArrYTD[4]}
+Toal Unresolved: {textArrYTD[8]}
+Total: {textArrYTD[11]}
+
+Deflection Rate: {PerYTD}%
+
+I have attached this week's reported issues to this email.
+
+Thank you,
+ROSCA
+Technical Service Bot
+Raptor Technologies, LLC</string>
+        <string />
+        <string>{lastWeekResolves}</string>
+        <string>ERRMSG</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>71</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>496</X>
+      <Y>464</Y>
+      <DependencyOrder>36</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>933f7543-0cd4-4bb3-a403-fbfe14f4d34c</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>71</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>63</ActionID>
+      <Action>SNIPPET</Action>
+      <Caption>Snippet</Caption>
+      <Parameters>
+        <string>IF TEST = 1 
+{
+	ASSIGN getDay = now.datepart('day')
+	ASSIGN getMonth = "{now.datepart('month')}"
+	ASSIGN getYear = now.datepart('year')
+	ASSIGN WeekOfDay = "{getMonth}/{getDay}/{getYear}"
+	ASSIGN BegWeekOfDayConv = WeekOfDay.asdate-6
+	ASSIGN BegWeekOfDayMonth = "{BegWeekOfDayConv.datepart('Month')}"
+	ASSIGN BegWeekOfDayDay = BegWeekOfDayConv.datepart('day')
+	ASSIGN BegWeekOfDayYear = BegWeekOfDayConv.datepart('year')
+	ASSIGN count = 1
+	ASSIGN c3 = 1
+
+}
+
+
+ASSIGN startBWDC = "{BegWeekOfDayConv+C3}"
+ASSIGN getMonthOf = "{startBWDC.datepart('Month')}"
+ASSIGN getDayOf = startBWDC.datepart('day')
+ASSIGN getYearOf = startBWDC.datepart('year')
+
+ASSIGN DailyOf = "ChatSupport\Solved_ToAgent_Count\{getYearOf}\{getMonthOf}\{getMonthOf}_{getDayOf}_{getYearOf}.txt"
+</string>
+        <string>Limit2K</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>53</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>784</X>
+      <Y>576</Y>
+      <DependencyOrder>9</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b333da63-33c8-4297-a58a-e9546cf7f0f2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>53</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>62</ActionID>
+      <Action>ASSIGN</Action>
+      <Caption>Redirect</Caption>
+      <Parameters>
+        <string>B1</string>
+        <string />
+        <string>String</string>
+        <string />
+        <string>False</string>
+        <string>False</string>
+        <string>Limit2K</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>2</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>656</X>
+      <Y>464</Y>
+      <DependencyOrder>34</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>9015c095-98d9-441f-bf92-e90f5c5ed8c8</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>2</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>61</ActionID>
+      <Action>READFILE</Action>
+      <Caption>Readfile Weekly</Caption>
+      <Parameters>
+        <string>{WeekOf}</string>
+        <string>Limit2K</string>
+        <string>BUFFER</string>
+        <string>False</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>62</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches>
+        <BranchStruct>
+          <Text>FileNotFound</Text>
+          <ActionID>54</ActionID>
+          <Index>0</Index>
+          <Segments />
+        </BranchStruct>
+      </Branches>
+      <Cases />
+      <X>704</X>
+      <Y>464</Y>
+      <DependencyOrder>33</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>0d21c228-59e9-4ab6-8fd1-3be9eb2f6b62</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>62</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches>
+          <BranchInfo>
+            <KeyName>0</KeyName>
+            <ActionId>54</ActionId>
+            <Segments />
+          </BranchInfo>
+        </Branches>
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>58</ActionID>
+      <Action>SNIPPET</Action>
+      <Caption>Snippet</Caption>
+      <Parameters>
+        <string>IF TEST = 1
+{
+	//ASSIGN textFile = "Date Solved by Rosca: 25 Sent to Agent: 0 Total issues: 0"
+	ASSIGN DAILYREAD = "Solved by Rosca: 25 Sent to Agent: 22 Total issues: 0"
+	ASSIGN WEEKLYREAD = "Solved by Rosca: 25 Sent to Agent: 0 Total issues: 0"
+}
+
+ASSIGN textArrDAILY = DAILYREAD.split(" ")
+ASSIGN textArrWEEKLY = WEEKLYREAD.split(" ")
+
+//Solved
+textArrWEEKLY[4] = textArrWEEKLY[4] + textArrDAILY[4]
+
+//Sent to Agent
+textArrWEEKLY[8] = textArrWEEKLY[8] + textArrDAILY[8]
+
+//total
+textArrWEEKLY[11] = textArrWEEKLY[4] + textArrWEEKLY[8]
+
+ASSIGN Arr2TextWEEKLY = ""
+ASSIGN count = 0
+
+FOREACH text IN textArrWEEKLY
+{
+	Arr2TextWEEKLY.append(text)
+	count = count+1
+	IF (count != textArrWEEKLY.count)
+	{
+		Arr2TextWEEKLY.append(" ")
+	}
+
+}
+</string>
+        <string>Limit2K</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>57</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>928</X>
+      <Y>656</Y>
+      <DependencyOrder>16</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b333da63-33c8-4297-a58a-e9546cf7f0f2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>57</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>57</ActionID>
+      <Action>WRITEFILE</Action>
+      <Caption>Writefile Weekly</Caption>
+      <Parameters>
+        <string>{WeekOf}</string>
+        <string>{Arr2TextWEEKLY}</string>
+        <string>False</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>54</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>704</X>
+      <Y>656</Y>
+      <DependencyOrder>31</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>c67385d1-6abc-45a1-adc0-fe6d2282bbd3</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>54</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>56</ActionID>
+      <Action>WRITEFILE</Action>
+      <Caption>Writefile Weekly</Caption>
+      <Parameters>
+        <string>{WeekOf}</string>
+        <string>{S2AC}
+</string>
+        <string>False</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>55</ActionID>
+        <Index>0</Index>
+        <Segments>
+          <Point>
+            <X>1008</X>
+            <Y>560</Y>
+          </Point>
+        </Segments>
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>1040</X>
+      <Y>576</Y>
+      <DependencyOrder>30</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>c67385d1-6abc-45a1-adc0-fe6d2282bbd3</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>55</ActionId>
+          <Segments>
+            <Point>
+              <X>1008</X>
+              <Y>560</Y>
+            </Point>
+          </Segments>
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>55</ActionID>
+      <Action>READFILE</Action>
+      <Caption>Readfile Weekly</Caption>
+      <Parameters>
+        <string>{WeekOf}</string>
+        <string>Limit2K</string>
+        <string>WEEKLYREAD</string>
+        <string>False</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>58</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches>
+        <BranchStruct>
+          <Text>FileNotFound</Text>
+          <ActionID>56</ActionID>
+          <Index>0</Index>
+          <Segments />
+        </BranchStruct>
+      </Branches>
+      <Cases />
+      <X>928</X>
+      <Y>576</Y>
+      <DependencyOrder>29</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>0d21c228-59e9-4ab6-8fd1-3be9eb2f6b62</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>58</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches>
+          <BranchInfo>
+            <KeyName>0</KeyName>
+            <ActionId>56</ActionId>
+            <Segments />
+          </BranchInfo>
+        </Branches>
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>54</ActionID>
+      <Action>LOOP</Action>
+      <Caption>Loop</Caption>
+      <Parameters>
+        <string>6</string>
+        <string>C3</string>
+      </Parameters>
+      <Branches>
+        <BranchStruct>
+          <Text>Finished</Text>
+          <ActionID>69</ActionID>
+          <Index>0</Index>
+          <Segments />
+        </BranchStruct>
+        <BranchStruct>
+          <Text>Repeat</Text>
+          <ActionID>63</ActionID>
+          <Index>1</Index>
+          <Segments />
+        </BranchStruct>
+      </Branches>
+      <Cases />
+      <X>704</X>
+      <Y>576</Y>
+      <DependencyOrder>9</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>a10f9f27-a5dd-48ba-ae37-e206fc6e101b</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches>
+          <BranchInfo>
+            <KeyName>0</KeyName>
+            <ActionId>69</ActionId>
+            <Segments />
+          </BranchInfo>
+          <BranchInfo>
+            <KeyName>1</KeyName>
+            <ActionId>63</ActionId>
+            <Segments />
+          </BranchInfo>
+        </Branches>
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>53</ActionID>
+      <Action>READFILE</Action>
+      <Caption>Readfile Daily</Caption>
+      <Parameters>
+        <string>{DailyOf}</string>
+        <string>Limit2K</string>
+        <string>DAILYREAD</string>
+        <string>False</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>55</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches>
+        <BranchStruct>
+          <Text>FileNotFound</Text>
+          <ActionID>54</ActionID>
+          <Index>0</Index>
+          <Segments>
+            <Point>
+              <X>800</X>
+              <Y>560</Y>
+            </Point>
+          </Segments>
+        </BranchStruct>
+      </Branches>
+      <Cases />
+      <X>848</X>
+      <Y>576</Y>
+      <DependencyOrder>27</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>0d21c228-59e9-4ab6-8fd1-3be9eb2f6b62</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>55</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches>
+          <BranchInfo>
+            <KeyName>0</KeyName>
+            <ActionId>54</ActionId>
+            <Segments>
+              <Point>
+                <X>800</X>
+                <Y>560</Y>
+              </Point>
+            </Segments>
+          </BranchInfo>
+        </Branches>
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>52</ActionID>
+      <Action>SNIPPET</Action>
+      <Caption>Snippet</Caption>
+      <Parameters>
+        <string>IF TEST = 1 
+{
+	ASSIGN getDay = now.datepart('day')
+	ASSIGN getMonth = "{now.datepart('month')}"
+	ASSIGN getYear = now.datepart('year')
+
+	//ASSIGN day = now.datepart('dow')
+	ASSIGN day = 0
+}
+ASSIGN WeeklyReportDay = ""
+ASSIGN newResolves = 0
+ASSIGN S2AC = "Solved by Rosca: 0 Sent to Agent: 0 Total issues: 0"
+ASSIGN count = 0
+
+
+IF day = 0
+{
+	WeeklyReportDay = 6
+	newResolves = newResolves + 1
+}
+
+IF day = 1
+{
+	WeeklyReportDay = 7
+}
+
+ASSIGN WeekOfDay = "{getMonth}/{getDay}/{getYear}"
+
+
+ASSIGN BegWeekOfDayConv = WeekOfDay.asdate() - WeeklyReportDay
+ASSIGN BegWeekOfDayMonth = "{BegWeekOfDayConv.datepart('month')}"
+ASSIGN BegWeekOfDayDay = BegWeekOfDayConv.datepart('day')
+ASSIGN BegWeekOfDayYear = BegWeekOfDayConv.datepart('year')
+
+ASSIGN WeekOf = "ChatSupport\Solved_ToAgent_Count\{BegWeekOfDayYear}\{BegWeekOfDayMonth}\Week_Of_{BegWeekOfDayMonth}_{BegWeekOfDayDay}_{BegWeekOfDayYear}.txt"
+
+
+ASSIGN BegWeekResConv = WeekOfDay.asdate() + newResolves
+ASSIGN BegWeekResMonth = "{BegWeekResConv.datepart('month')}"
+ASSIGN BegWeekResDay = BegWeekResConv.datepart('day')
+ASSIGN BegWeekResYear = BegWeekResConv.datepart('year')
+
+ASSIGN nextWeekResolves = "ChatSupport\Solved_ToAgent_Count\{BegWeekResYear}\{BegWeekResMonth}\Week_Resolves_{BegWeekResMonth}_{BegWeekResDay}_{BegWeekResYear}.txt"
+ASSIGN ResolveHeaders = "Status,ContactID,Name,Email,InitialIssue,LoopedIssue,Category,Subcategory,Link"
+
+ASSIGN lastWeekResolves = "ChatSupport\Solved_ToAgent_Count\{BegWeekOfDayYear}\{BegWeekOfDayMonth}\Week_Resolves_{BegWeekOfDayMonth}_{BegWeekOfDayDay}_{BegWeekOfDayYear}.txt"</string>
+        <string>Limit2K</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>61</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>704</X>
+      <Y>400</Y>
+      <DependencyOrder>16</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b333da63-33c8-4297-a58a-e9546cf7f0f2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>61</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>51</ActionID>
+      <Action>CASE</Action>
+      <Caption>Case</Caption>
+      <Parameters>
+        <string>day</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>2</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases>
+        <BranchStruct>
+          <Text>0</Text>
+          <ActionID>52</ActionID>
+          <Index>0</Index>
+          <Segments />
+        </BranchStruct>
+        <BranchStruct>
+          <Text>1</Text>
+          <ActionID>52</ActionID>
+          <Index>0</Index>
+          <Segments />
+        </BranchStruct>
+      </Cases>
+      <X>704</X>
+      <Y>320</Y>
+      <DependencyOrder>25</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>22050500-6dc0-4949-af9c-1e52975f141d</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>2</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches>
+          <BranchInfo>
+            <KeyName>0</KeyName>
+            <ActionId>52</ActionId>
+            <Segments />
+          </BranchInfo>
+          <BranchInfo>
+            <KeyName>1</KeyName>
+            <ActionId>52</ActionId>
+            <Segments />
+          </BranchInfo>
+        </CaseBranches>
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>49</ActionID>
+      <Action>ASSIGN</Action>
+      <Caption>Assign</Caption>
+      <Parameters>
+        <string>B1</string>
+        <string />
+        <string>String</string>
+        <string />
+        <string>False</string>
+        <string>False</string>
+        <string>Limit2K</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>43</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>448</X>
+      <Y>320</Y>
+      <DependencyOrder>24</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>9015c095-98d9-441f-bf92-e90f5c5ed8c8</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>43</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>48</ActionID>
+      <Action>HOURS</Action>
+      <Caption>Hours</Caption>
+      <Parameters>
+        <string>2066</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>42</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches>
+        <BranchStruct>
+          <Text>Holiday</Text>
+          <ActionID>47</ActionID>
+          <Index>2</Index>
+          <Segments />
+        </BranchStruct>
+      </Branches>
+      <Cases />
+      <X>208</X>
+      <Y>192</Y>
+      <DependencyOrder>23</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>d639cf70-9de8-47fe-aa7e-6b39e4556d9d</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>42</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches>
+          <BranchInfo>
+            <KeyName>2</KeyName>
+            <ActionId>47</ActionId>
+            <Segments />
+          </BranchInfo>
+        </Branches>
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>47</ActionID>
+      <Action>EMAIL</Action>
+      <Caption>ROSCA's Daily Summary (Holiday)</Caption>
+      <Parameters>
+        <string>Automatic</string>
+        <string>ROSCA</string>
+        <string>ROSCA@raptortech.com</string>
+        <string />
+        <string>{ToEmail}</string>
+        <string>{CCEmail}</string>
+        <string>ROSCA's Daily Summary</string>
+        <string>Happy Holidays!
+
+{getMonth} {getDay}, {getYear}
+Here are today's summary for ROSCA:
+
+Total Interactions: {textArrDAILY[11]}
+Today's Resolved: {textArrDAILY[4]}
+Deflection Rate: {PerDAILY}%
+
+
+Year to Date:
+
+Total Interactions: {textArrYTD[11]}
+Total Resolved: {textArrYTD[4]}
+Deflection Rate: {PerYTD}%
+
+Thank you,
+ROSCA
+Technical Service Bot
+Raptor Technologies, LLC</string>
+        <string />
+        <string />
+        <string>ERRMSG</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>43</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>208</X>
+      <Y>272</Y>
+      <DependencyOrder>22</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>933f7543-0cd4-4bb3-a403-fbfe14f4d34c</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>43</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>46</ActionID>
+      <Action>IF</Action>
+      <Caption>If</Caption>
+      <Parameters>
+        <string>textArrDAILY[11] &gt; 0</string>
+      </Parameters>
+      <Branches>
+        <BranchStruct>
+          <Text>True</Text>
+          <ActionID>48</ActionID>
+          <Index>0</Index>
+          <Segments />
+        </BranchStruct>
+        <BranchStruct>
+          <Text>False</Text>
+          <ActionID>49</ActionID>
+          <Index>1</Index>
+          <Segments />
+        </BranchStruct>
+      </Branches>
+      <Cases />
+      <X>448</X>
+      <Y>192</Y>
+      <DependencyOrder>21</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>6695ba9c-e1d6-4f3c-a15a-94f1400e3169</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches>
+          <BranchInfo>
+            <KeyName>0</KeyName>
+            <ActionId>48</ActionId>
+            <Segments />
+          </BranchInfo>
+          <BranchInfo>
+            <KeyName>1</KeyName>
+            <ActionId>49</ActionId>
+            <Segments />
+          </BranchInfo>
+        </Branches>
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>45</ActionID>
+      <Action>READFILE</Action>
+      <Caption>Readfile S2AC YTD</Caption>
+      <Parameters>
+        <string>{locationYTD}</string>
+        <string>Limit2K</string>
+        <string>fileS2AC_YTD</string>
+        <string>False</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>44</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>656</X>
+      <Y>192</Y>
+      <DependencyOrder>20</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>0d21c228-59e9-4ab6-8fd1-3be9eb2f6b62</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>44</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>44</ActionID>
+      <Action>SNIPPET</Action>
+      <Caption>Solved</Caption>
+      <Parameters>
+        <string>IF TEST = 1
+{
+	//ASSIGN textFile = "date Solved by Rosca: 25 Sent to Agent: 0 Total issues: 0"
+	ASSIGN fileS2AC_YTD = "Solved by Rosca: 25 Sent to Agent: 25 Total issues: 222"
+}
+
+ASSIGN textArrYTD = fileS2AC_YTD.split(" ")
+ASSIGN textArrDAILY = fileS2AC_DAILY.split(" ")
+ASSIGN PerDAILY = (textArrDAILY[4]/textArrDAILY[11]*100).format('F0')
+ASSIGN PerYTD = (textArrYTD[4]/textArrYTD[11]*100).format('F0')</string>
+        <string>Limit2K</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>46</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>544</X>
+      <Y>192</Y>
+      <DependencyOrder>16</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b333da63-33c8-4297-a58a-e9546cf7f0f2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>46</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>43</ActionID>
+      <Action>END</Action>
+      <Caption>End</Caption>
+      <Parameters />
+      <Branches />
+      <Cases />
+      <X>128</X>
+      <Y>320</Y>
+      <DependencyOrder>18</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>93fb8888-30cf-4df3-8ed9-1f2986819080</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>42</ActionID>
+      <Action>EMAIL</Action>
+      <Caption>ROSCA's Daily Summary</Caption>
+      <Parameters>
+        <string>Automatic</string>
+        <string>ROSCA</string>
+        <string>ROSCA@raptortech.com</string>
+        <string />
+        <string>{ToEmail}</string>
+        <string>{CCEmail}</string>
+        <string>ROSCA's Daily Summary</string>
+        <string>Hello,
+
+{getMonth} {getDay}, {getYear}
+Here are today's summary for ROSCA:
+
+Total Interactions: {textArrDAILY[11]}
+Today's Resolved: {textArrDAILY[4]}
+Deflection Rate: {PerDAILY}%
+
+
+Year to Date:
+
+Total Interactions: {textArrYTD[11]}
+Total Resolved: {textArrYTD[4]}
+Deflection Rate: {PerYTD}%
+
+Thank you,
+ROSCA
+Technical Service Bot
+Raptor Technologies, LLC</string>
+        <string />
+        <string />
+        <string>ERRMSG</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>43</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>128</X>
+      <Y>192</Y>
+      <DependencyOrder>17</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>933f7543-0cd4-4bb3-a403-fbfe14f4d34c</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>43</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>41</ActionID>
+      <Action>SNIPPET</Action>
+      <Caption>Variables</Caption>
+      <Parameters>
+        <string>IF TEST = 1
+{
+	//ASSIGN textFile = "date Solved by Rosca: 25 Sent to Agent: 0 Total issues: 0"
+	//ASSIGN textFile = "Solved by Rosca: 25 Sent to Agent: 0 Total issues: 0"
+	//need to set up route to combine the files
+	//ASSIGN month = "{now.datepart('month')}"
+	//ASSIGN year = now.datepart('year')
+	//ASSIGN day = now.datepart('day')
+	//combine weeklys to monthlys
+	//YTD
+}
+
+ASSIGN getMonth = "{now.datepart('month')}"
+ASSIGN getYear = now.datepart('year')
+ASSIGN getDay = now.datepart('day')
+ASSIGN reqYear = now.datepart('year')
+
+ASSIGN lastMonth = 0
+ASSIGN lastmonth2 = 0
+
+ASSIGN locationYTD = "ChatSupport\Solved_ToAgent_Count\{getYear}\000_YTD_Count.txt"
+ASSIGN locationMTD = "ChatSupport\Solved_ToAgent_Count\{getYear}\{getMonth}\000_MTD_Count.txt"
+ASSIGN locationDAILY = "ChatSupport\Solved_ToAgent_Count\{getYear}\{getMonth}\{getMonth}_{getDay}_{getYear}.txt"
+
+ASSIGN combinedHeaders = "Date,Resolved By Rosca,Sent to Agent,Total"
+
+ASSIGN locationYCombined = "ChatSupport\Solved_ToAgent_Count\{reqYear}\001_YTD_Count_Combined.txt"
+
+ASSIGN Months = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec"
+ASSIGN MonthsArr = Months.split(",")
+
+ASSIGN ToEmail = "dpalmer@raptortech.com"
+ASSIGN CCEmail = "wngo@raptortech.com"
+ASSIGN reportEmail = "mdebondt@raptortech.com"
+
+ASSIGN day = now.datepart('dow')</string>
+        <string>Limit2K</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>40</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>448</X>
+      <Y>112</Y>
+      <DependencyOrder>0</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b333da63-33c8-4297-a58a-e9546cf7f0f2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>40</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>40</ActionID>
+      <Action>WRITEFILE</Action>
+      <Caption>Reset Queue</Caption>
+      <Parameters>
+        <string>ChatSupport\Queue.txt</string>
+        <string />
+        <string>False</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>28</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>544</X>
+      <Y>112</Y>
+      <DependencyOrder>15</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>c67385d1-6abc-45a1-adc0-fe6d2282bbd3</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>28</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>33</ActionID>
+      <Action>SNIPPET</Action>
+      <Caption>Snippet</Caption>
+      <Parameters>
+        <string>IF TEST = 1
+{
+  ASSIGN ComDaily = "Solved by Rosca: 25 Sent to Agent: 0 Total issues: 55"
+  ASSIGN C2 = 5
+}
+//ASSIGN combinedHeaders = "Month,Day,Resolved By Rosca,Sent to Agent,Total"
+ASSIGN textArrDaily=ComDaily.split(" ")
+
+IF textArrDaily[11] != 0
+{
+	C3 = C2
+	ASSIGN dataOnly="{MonthsArr[C1]} {C2},{textArrDaily[4]},{textArrDaily[8]},{textArrDaily[11]}"
+}</string>
+        <string>Limit2K</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>27</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>1264</X>
+      <Y>112</Y>
+      <DependencyOrder>2</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b333da63-33c8-4297-a58a-e9546cf7f0f2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>27</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>32</ActionID>
+      <Action>SNIPPET</Action>
+      <Caption>Snippet</Caption>
+      <Parameters>
+        <string>IF TEST = 1
+{
+	//ASSIGN textFile = "date Solved by Rosca: 25 Sent to Agent: 0 Total issues: 0"
+	//ASSIGN textFile = "Solved by Rosca: 25 Sent to Agent: 0 Total issues: 0"
+	//need to set up route to combine the files
+	//ASSIGN month = '{now.datepart('month')}'
+	ASSIGN getMonth = "{now.datepart('month')}"
+	//ASSIGN year = now.datepart('year')
+	//ASSIGN day = now.datepart('day')
+	//combine weeklys to monthlys
+	//YTD
+}
+
+IF (MonthsArr[C1] = getMonth)
+{
+	ASSIGN lastMonth = 1
+}
+</string>
+        <string>Limit2K</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>29</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>896</X>
+      <Y>112</Y>
+      <DependencyOrder>6</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b333da63-33c8-4297-a58a-e9546cf7f0f2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>29</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>29</ActionID>
+      <Action>WRITEFILE</Action>
+      <Caption>Create Month Headers</Caption>
+      <Parameters>
+        <string>ChatSupport\Solved_ToAgent_Count\{reqYear}\{MonthsArr[C1]}\001_MTD_Count_Combined.txt</string>
+        <string>{combinedHeaders}
+</string>
+        <string>False</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>4</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>960</X>
+      <Y>112</Y>
+      <DependencyOrder>12</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>c67385d1-6abc-45a1-adc0-fe6d2282bbd3</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>4</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>28</ActionID>
+      <Action>WRITEFILE</Action>
+      <Caption>Create Year Headers</Caption>
+      <Parameters>
+        <string>{locationYCombined}</string>
+        <string>{combinedHeaders}
+</string>
+        <string>False</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>6</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>640</X>
+      <Y>112</Y>
+      <DependencyOrder>11</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>c67385d1-6abc-45a1-adc0-fe6d2282bbd3</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>6</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>27</ActionID>
+      <Action>IF</Action>
+      <Caption>If</Caption>
+      <Parameters>
+        <string>C2 = C3</string>
+      </Parameters>
+      <Branches>
+        <BranchStruct>
+          <Text>True</Text>
+          <ActionID>7</ActionID>
+          <Index>0</Index>
+          <Segments />
+        </BranchStruct>
+        <BranchStruct>
+          <Text>False</Text>
+          <ActionID>4</ActionID>
+          <Index>1</Index>
+          <Segments>
+            <Point>
+              <X>1120</X>
+              <Y>240</Y>
+            </Point>
+          </Segments>
+        </BranchStruct>
+      </Branches>
+      <Cases />
+      <X>1264</X>
+      <Y>224</Y>
+      <DependencyOrder>10</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>6695ba9c-e1d6-4f3c-a15a-94f1400e3169</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches>
+          <BranchInfo>
+            <KeyName>0</KeyName>
+            <ActionId>7</ActionId>
+            <Segments />
+          </BranchInfo>
+          <BranchInfo>
+            <KeyName>1</KeyName>
+            <ActionId>4</ActionId>
+            <Segments>
+              <Point>
+                <X>1120</X>
+                <Y>240</Y>
+              </Point>
+            </Segments>
+          </BranchInfo>
+        </Branches>
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>25</ActionID>
+      <Action>ASSIGN</Action>
+      <Caption>lastmonth2</Caption>
+      <Parameters>
+        <string>lastmonth2</string>
+        <string>1</string>
+        <string>String</string>
+        <string />
+        <string>False</string>
+        <string>False</string>
+        <string>Limit2K</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>6</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>736</X>
+      <Y>224</Y>
+      <DependencyOrder>7</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>9015c095-98d9-441f-bf92-e90f5c5ed8c8</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>6</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>24</ActionID>
+      <Action>IF</Action>
+      <Caption>If</Caption>
+      <Parameters>
+        <string>lastMonth2 = 1</string>
+      </Parameters>
+      <Branches>
+        <BranchStruct>
+          <Text>True</Text>
+          <ActionID>51</ActionID>
+          <Index>0</Index>
+          <Segments />
+        </BranchStruct>
+        <BranchStruct>
+          <Text>False</Text>
+          <ActionID>25</ActionID>
+          <Index>1</Index>
+          <Segments />
+        </BranchStruct>
+      </Branches>
+      <Cases />
+      <X>864</X>
+      <Y>320</Y>
+      <DependencyOrder>8</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>6695ba9c-e1d6-4f3c-a15a-94f1400e3169</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches>
+          <BranchInfo>
+            <KeyName>0</KeyName>
+            <ActionId>51</ActionId>
+            <Segments />
+          </BranchInfo>
+          <BranchInfo>
+            <KeyName>1</KeyName>
+            <ActionId>25</ActionId>
+            <Segments />
+          </BranchInfo>
+        </Branches>
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>9</ActionID>
+      <Action>IF</Action>
+      <Caption>If</Caption>
+      <Parameters>
+        <string>lastMonth = 1</string>
+      </Parameters>
+      <Branches>
+        <BranchStruct>
+          <Text>True</Text>
+          <ActionID>24</ActionID>
+          <Index>0</Index>
+          <Segments />
+        </BranchStruct>
+        <BranchStruct>
+          <Text>False</Text>
+          <ActionID>6</ActionID>
+          <Index>1</Index>
+          <Segments />
+        </BranchStruct>
+      </Branches>
+      <Cases />
+      <X>864</X>
+      <Y>224</Y>
+      <DependencyOrder>7</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>6695ba9c-e1d6-4f3c-a15a-94f1400e3169</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches>
+          <BranchInfo>
+            <KeyName>0</KeyName>
+            <ActionId>24</ActionId>
+            <Segments />
+          </BranchInfo>
+          <BranchInfo>
+            <KeyName>1</KeyName>
+            <ActionId>6</ActionId>
+            <Segments />
+          </BranchInfo>
+        </Branches>
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>8</ActionID>
+      <Action>WRITEFILE</Action>
+      <Caption>Append Year</Caption>
+      <Parameters>
+        <string>{locationYCombined}</string>
+        <string>{dataOnly}
+</string>
+        <string>True</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>4</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>1024</X>
+      <Y>320</Y>
+      <DependencyOrder>6</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>c67385d1-6abc-45a1-adc0-fe6d2282bbd3</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>4</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>7</ActionID>
+      <Action>WRITEFILE</Action>
+      <Caption>Append Combined Month</Caption>
+      <Parameters>
+        <string>ChatSupport\Solved_ToAgent_Count\{reqYear}\{MonthsArr[C1]}\001_MTD_Count_Combined.txt</string>
+        <string>{dataOnly}
+</string>
+        <string>True</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>8</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>1264</X>
+      <Y>320</Y>
+      <DependencyOrder>5</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>c67385d1-6abc-45a1-adc0-fe6d2282bbd3</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>8</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>6</ActionID>
+      <Action>LOOP</Action>
+      <Caption>Loop Months</Caption>
+      <Parameters>
+        <string>12</string>
+        <string>C1</string>
+      </Parameters>
+      <Branches>
+        <BranchStruct>
+          <Text>Finished</Text>
+          <ActionID>51</ActionID>
+          <Index>0</Index>
+          <Segments />
+        </BranchStruct>
+        <BranchStruct>
+          <Text>Repeat</Text>
+          <ActionID>32</ActionID>
+          <Index>1</Index>
+          <Segments />
+        </BranchStruct>
+      </Branches>
+      <Cases />
+      <X>704</X>
+      <Y>112</Y>
+      <DependencyOrder>1</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>a10f9f27-a5dd-48ba-ae37-e206fc6e101b</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches>
+          <BranchInfo>
+            <KeyName>0</KeyName>
+            <ActionId>51</ActionId>
+            <Segments />
+          </BranchInfo>
+          <BranchInfo>
+            <KeyName>1</KeyName>
+            <ActionId>32</ActionId>
+            <Segments />
+          </BranchInfo>
+        </Branches>
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>5</ActionID>
+      <Action>READFILE</Action>
+      <Caption>Readfile S2AC DAILY</Caption>
+      <Parameters>
+        <string>ChatSupport\Solved_ToAgent_Count\{reqYear}\{MonthsArr[C1]}\{MonthsArr[C1]}_{C2}_{reqYear}.txt</string>
+        <string>Limit8K</string>
+        <string>ComDaily</string>
+        <string>False</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>33</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches>
+        <BranchStruct>
+          <Text>FileNotFound</Text>
+          <ActionID>4</ActionID>
+          <Index>0</Index>
+          <Segments>
+            <Point>
+              <X>1104</X>
+              <Y>176</Y>
+            </Point>
+          </Segments>
+        </BranchStruct>
+      </Branches>
+      <Cases />
+      <X>1168</X>
+      <Y>112</Y>
+      <DependencyOrder>3</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>0d21c228-59e9-4ab6-8fd1-3be9eb2f6b62</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>33</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches>
+          <BranchInfo>
+            <KeyName>0</KeyName>
+            <ActionId>4</ActionId>
+            <Segments>
+              <Point>
+                <X>1104</X>
+                <Y>176</Y>
+              </Point>
+            </Segments>
+          </BranchInfo>
+        </Branches>
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>4</ActionID>
+      <Action>LOOP</Action>
+      <Caption>Loop Days</Caption>
+      <Parameters>
+        <string>31</string>
+        <string>C2</string>
+      </Parameters>
+      <Branches>
+        <BranchStruct>
+          <Text>Finished</Text>
+          <ActionID>9</ActionID>
+          <Index>0</Index>
+          <Segments />
+        </BranchStruct>
+        <BranchStruct>
+          <Text>Repeat</Text>
+          <ActionID>5</ActionID>
+          <Index>1</Index>
+          <Segments />
+        </BranchStruct>
+      </Branches>
+      <Cases />
+      <X>1024</X>
+      <Y>112</Y>
+      <DependencyOrder>2</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>a10f9f27-a5dd-48ba-ae37-e206fc6e101b</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches>
+          <BranchInfo>
+            <KeyName>0</KeyName>
+            <ActionId>9</ActionId>
+            <Segments />
+          </BranchInfo>
+          <BranchInfo>
+            <KeyName>1</KeyName>
+            <ActionId>5</ActionId>
+            <Segments />
+          </BranchInfo>
+        </Branches>
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>2</ActionID>
+      <Action>READFILE</Action>
+      <Caption>Readfile S2AC DAILY</Caption>
+      <Parameters>
+        <string>{locationDAILY}</string>
+        <string>Limit2K</string>
+        <string>fileS2AC_DAILY</string>
+        <string>False</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>45</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches>
+        <BranchStruct>
+          <Text>FileNotFound</Text>
+          <ActionID>49</ActionID>
+          <Index>0</Index>
+          <Segments />
+        </BranchStruct>
+      </Branches>
+      <Cases />
+      <X>656</X>
+      <Y>320</Y>
+      <DependencyOrder>1</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>0d21c228-59e9-4ab6-8fd1-3be9eb2f6b62</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>45</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches>
+          <BranchInfo>
+            <KeyName>0</KeyName>
+            <ActionId>49</ActionId>
+            <Segments />
+          </BranchInfo>
+        </Branches>
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>1</ActionID>
+      <Action>BEGIN</Action>
+      <Caption>Begin</Caption>
+      <Parameters>
+        <string />
+        <string />
+        <string />
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>41</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>128</X>
+      <Y>112</Y>
+      <DependencyOrder>0</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b2f794c5-0232-40e7-9830-76d573bf57d7</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>41</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+  </Actions>
+  <LibraryItem LibraryID="5d20b4c5-c178-44fe-bcea-d5ef25b670a7" ApiClassificationId="0" BusNo="4598005" Name="Chat_AutoScript" Alias="Chat_AutoScript" MediaType="0" RouteOrder="1000" RoutingMode="" VariableRedaction="">
+    <Icon>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0ZW0uRHJhd2luZy5CaXRtYXABAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAiwUAAAKJUE5HDQoaCgAAAA1JSERSAAAAIAAAACAIAgAAAPwY7aMAAAABc1JHQgCuzhzpAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwwAADsMBx2+oZAAABSBJREFUSEutVllsG1UUfZ9pm7ZRlSqL4yW2E8dZbCexkzqJ4ziOd3vs8b6vYxNKS9JSGqChhVSARJBQEZtYK0ACyhoKlCJElCKhQlk+4KNICAkiJCpaqcAHiK2cYSwnclMzH1jXo/ve3HfP3d+QK//+Ll68fPz4yZmZRYZZyOfvyOUOZzLzqdShROLWWGwuGr05HL4pGNzn98/6fHu93j0ez26Xa9rpLNlsjNWan5rKTk5mTKaU0ZgwGGKjoxGa3r2y8hE0E/xXVy+EQgfb2z1NTZb/i8Rih1ZLLy+fJbAd2vnrHbyetr8Ql4+7Os0uicZR46BIZHe5GILI8LRdrLIP7fMnvsmVrpQyPxbw7C/4alvW3+8hs7OLPM3X5H1QWqH8L4z50UiX3V3juFrtIsXiUZ4Auhl/6e9S9lKhn/FBdfGPIsCod5MCqe1aGlQqB2GYO/kAtHXYgucy0Jj8Ni/ssg0f8DO/FVPf5zU5b43jvb12ks8f4QMAM8fuCiVX88AIfZbhGN9yCokRq+3Q0OV090WpVol1vbbubivJZg/zAYCMdMgR+4rNMEdwyPFifPRI0HhfuJvyTD4c8byZ6AlQ67UplVMknZ7nCQAx7V5af1vA/nwMANJhp0BqtTwdhV7nK3HXUsJxIj5ye2BwmlbYyplXKCYJ2pU/QEsbGwFRtx0FKhlknzAcfjhfZQn9AaJXUlOPRVvbWcnOThPBMOAPUJEUyGyGu0PUqaTt2RgMHz7oV6e9KC0AOF6KA7i5lR0KcrmRxONzVwP00B7YlfuJ4cINBktsViRbhNZdtwRsz8UQGdODkbZOtlJVMcp9MoEdVdzLeSCVGggG2XoAiPo/TOcuM563k6YHwuOLIRAYLLGJV5wuEFtXC0EU0uRDkXado0VkhR9srF6Ou15P9AbZbEskYyQcPlABwOHIl9nQJ5mJY2HqdDL+dS79QwEEBkts4hUEWIxmC4qSDciJOPwAxvi9IYTL+kxs6omo6VhYqGDtEItHSCi0vwIAA6ECEsnv8pYno1yvcgQ+c6GAVxCAGAB6wxTihiqyPBUFkve9pOu1BBhNdq31hEI9CQRmOQCEGEGAmdCOOaM/FCj+VaoiTgBPCDcLrOgMucEJAMQETqB8Q59mlK616dTWNkz8/hkOACWBQCMU2UtM8c+S+ZEo/UEaTBUFzqZZsVPJit9jR4OoHNmIE808tN/PpZej1lYdwQ3FLVAqSCbCXfi1yPxeDH+e0e6hwXAE0xANMPmfWTEIr88cmo5bctVZoebmQUJRN3BrBBoFg5RiinEkGXAAD9NNPx8w3BOq7EMMwvy6p5/gdq0CQIg4GriO7otQSrdndCFY2QTDH2DnTg3B3V0Vouj5HEdTj0cxG4bnApUdMJEvslUhquFKY6OK4MugKsmYxsjktcj9RqIqyTUAduzoI3Z7OV2VMo2dz/neT21IuL+M95fLlE8OGhp6iNVauLrRMOtRr1XkeavczGyj8fvA2b5dSSyW3IajAr1DvVPGAI/GRm7XRgU/gK1bu4jZnF1vDv9hx8eJ+vpOYjJt4O9/jms+2iGzebOcTEysNT3PY/zF6uqkmKY3SiTlRud/ko9kY6NBLh8jZ86c0+vD+Fblc4a/DLTX1cmWlk6zX9crKx97vdM6Ha3V+gYGKI3GrVY78c3U02NVKi0KhRl3t0xmxP0nkYyKRHqhcJdAoGtp0TY1DWAYoF3RUA0N3du2KevrFVu2dGzaJOvoGIN2KP8HVQ1aCsWAeQgAAAAASUVORK5CYIIL</Icon>
+    <ImplPath>Chat_AutoScript</ImplPath>
+    <CreateDate>2022-02-10T16:15:22.943</CreateDate>
+    <ModifyDate>2022-03-24T16:50:24.337</ModifyDate>
+    <ModifyUserID>7190920</ModifyUserID>
+    <ModifiedBy>Wilson Ngo</ModifiedBy>
+    <URI>/custom/4598005/Chat_AutoScript</URI>
+    <DefaultTimeZone>Mountain Standard Time</DefaultTimeZone>
+    <Parameters />
+    <Branches />
+  </LibraryItem>
+  <MediaType>0</MediaType>
+  <ModifyDate>0001-01-01T00:00:00</ModifyDate>
+</ScriptContainer>
